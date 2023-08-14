@@ -1,0 +1,8 @@
+C:\Users\Dell\Documents\Projetos\CadastroAluno\CadastroAluno\bin\Debug\CadastroAluno.exe.config
+C:\Users\Dell\Documents\Projetos\CadastroAluno\CadastroAluno\bin\Debug\CadastroAluno.exe
+C:\Users\Dell\Documents\Projetos\CadastroAluno\CadastroAluno\bin\Debug\CadastroAluno.pdb
+C:\Users\Dell\Documents\Projetos\CadastroAluno\CadastroAluno\obj\Debug\CadastroAluno.csproj.AssemblyReference.cache
+C:\Users\Dell\Documents\Projetos\CadastroAluno\CadastroAluno\obj\Debug\CadastroAluno.csproj.SuggestedBindingRedirects.cache
+C:\Users\Dell\Documents\Projetos\CadastroAluno\CadastroAluno\obj\Debug\CadastroAluno.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Documents\Projetos\CadastroAluno\CadastroAluno\obj\Debug\CadastroAluno.exe
+C:\Users\Dell\Documents\Projetos\CadastroAluno\CadastroAluno\obj\Debug\CadastroAluno.pdb
