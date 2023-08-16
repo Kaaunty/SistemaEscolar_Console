@@ -28,42 +28,37 @@ namespace CadastroAluno.View
                 }
 
                 bool numero = int.TryParse(key.KeyChar.ToString(), out int opcao);
-                if (!numero)
+
+                switch (opcao)
                 {
-                    Console.WriteLine("Opção inválida");
-                    ExibirMenuAluno();
-                }
-                else
-                {
-                    if (opcao == 1)
-                    {
+                    case 1:
                         AlunoController.Adicionar();
-                    }
-                    else if (opcao == 2)
-                    {
+                        Console.ResetColor();
+                        break;
+                    case 2:
                         ExibirAluno.VisualizarAlunos();
-                    }
-                    else if (opcao == 3)
-                    {
+                        Console.ResetColor();
+                        break;
+                    case 3:
                         AlunoController.Remover();
-                    }
-                    else if (opcao == 4)
-                    {
+                        Console.ResetColor();
+                        break;
+                    case 4:
                         Console.WriteLine("Retornando ao menu principal");
                         Console.WriteLine();
                         Program.Main();
-                    }
-                    else
-                    {
-
+                        break;
+                    default:
                         Console.WriteLine("Opção inválida");
+                        Console.WriteLine("Pressione qualquer tecla para continuar");
+                        Console.ReadKey();
                         ExibirMenuAluno();
-                    }
+                        break;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine("Erro: " + e.Message);
+                Console.WriteLine("Erro: " + ex.Message);
             }
         }
     }

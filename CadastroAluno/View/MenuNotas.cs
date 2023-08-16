@@ -28,40 +28,29 @@ namespace CadastroAluno.View
                 }
 
                 bool numero = int.TryParse(key.KeyChar.ToString(), out int opcao);
-                if (!numero)
+                switch (opcao)
                 {
-                    Console.WriteLine("Opção inválida");
-                    ExibirMenuNotas();
-                }
-                else
-                {
-                    if (opcao == 1)
-                    {
+
+                    case 1:
                         Console.Clear();
 
                         NotaController.AdicionarNotasAluno();
-                    }
-                    else if (opcao == 2)
-                    {
+                        break;
+                    case 2:
                         Console.Clear();
                         ExibirNotas.VisualizarNotas();
-
-                    }
-                    else if (opcao == 3)
-                    {
+                        break;
+                    case 3:
                         Console.WriteLine("Retornando ao menu principal");
                         Console.Clear();
                         Console.WriteLine();
                         Program.Main();
-
-                    }
-                    else
-                    {
-
+                        break;
+                    default:
                         Console.WriteLine("Opção inválida");
-                        return;
-                    }
+                        break;
                 }
+
             }
             catch (Exception ex)
             {

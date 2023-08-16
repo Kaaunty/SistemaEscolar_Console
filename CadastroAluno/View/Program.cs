@@ -27,49 +27,42 @@ namespace CadastroAluno
                     Environment.Exit(0);
                 }
                 bool numero = int.TryParse(key.KeyChar.ToString(), out int opcao);
-                if (!numero)
+
+                switch (opcao)
                 {
-                    Console.WriteLine("Opção inválida");
-                    Main();
-                }
-                else
-                {
-                    if (opcao == 1)
-                    {
+                    case 1:
+
                         MenuAluno.ExibirMenuAluno();
                         Console.ResetColor();
-                    }
-                    else if (opcao == 2)
-                    {
+                        break;
+                    case 2:
                         MenuProfessor.ExibirMenuProfessor();
                         Console.ResetColor();
-
-                    }
-                    else if (opcao == 3)
-                    {
+                        break;
+                    case 3:
                         MenuNotas.ExibirMenuNotas();
                         Console.ResetColor();
-
-                    }
-                    else if (opcao == 4)
-                    {
+                        break;
+                    case 4:
                         Console.WriteLine("Obrigado por utilizar o Sistema Escolar");
                         Console.WriteLine();
                         Environment.Exit(0);
-                    }
-                    else
-                    {
+                        break;
+                    default:
                         Console.WriteLine("Opção inválida");
+                        Console.WriteLine("Pressione qualquer tecla para continuar");
+                        Console.ReadKey();
                         Main();
+                        break;
 
-                    }
                 }
-                Console.WriteLine();
-                Console.ResetColor();
+
+
+
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine("Erro: " + e.Message);
+                Console.WriteLine("Erro: " + ex.Message);
                 Console.WriteLine("Pressione qualquer tecla para continuar");
                 Console.ReadKey();
                 Main();

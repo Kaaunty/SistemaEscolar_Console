@@ -28,41 +28,31 @@ namespace CadastroAluno.View
                 }
 
                 bool numero = int.TryParse(key.KeyChar.ToString(), out int opcao);
-                if (!numero)
+                switch (opcao)
                 {
-                    Console.WriteLine("Opção inválida");
-                    ExibirMenuProfessor();
-                }
-                else
-                {
-                    if (opcao == 1)
-                    {
+                    case 1:
                         ProfessorController.Adicionar();
-                    }
-                    else if (opcao == 2)
-                    {
+                        break;
+                    case 2:
                         ExibirProfessor.VisualizarProfessores();
-                    }
-                    else if (opcao == 3)
-                    {
+                        break;
+                    case 3:
                         ProfessorController.Remover();
-                    }
-                    else if (opcao == 4)
-                    {
+                        break;
+                    case 4:
                         Console.WriteLine("Retornando ao menu principal");
                         Console.WriteLine();
                         Program.Main();
-                    }
-                    else
-                    {
+                        break;
+                    default:
                         Console.WriteLine("Opção inválida");
                         ExibirMenuProfessor();
-                    }
+                        break;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine("Erro: " + e.Message);
+                Console.WriteLine("Erro: " + ex.Message);
                 Console.ReadKey();
                 ExibirMenuProfessor();
             }
