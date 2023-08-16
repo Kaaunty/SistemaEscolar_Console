@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace CadastroAluno.Controller
 {
-    internal class AdicionarAluno
+    internal class AlunoController
     {
         public static List<Aluno> ListaAluno = Aluno.ListaAluno;
         public static void Adicionar()
@@ -64,6 +64,63 @@ namespace CadastroAluno.Controller
                 Console.ReadKey();
                 MenuAluno.ExibirMenuAluno();
             }
+        } // OK
+
+        public static void Remover()
+        {
+            try
+            {
+                Console.Clear();
+                Console.WriteLine("Lista de aluno cadastrados:");
+
+                for (int i = 0; i < ListaAluno.Count; i++)
+                {
+                    int indicedisplay = i;
+                    Console.WriteLine($"{indicedisplay}. Nome: {ListaAluno[i].Nome} RA: {ListaAluno[i].RA}");
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+
+                Console.WriteLine("Índice do aluno a ser excluído:");
+                string indicealunoStr = Console.ReadLine();
+                if (int.TryParse(indicealunoStr, out int indicealuno))
+                {
+                    if (indicealuno >= 0 && indicealuno < ListaAluno.Count)
+                    {
+                        Console.WriteLine($"Aluno {ListaAluno[indicealuno].Nome} excluído com sucesso!");
+                        ListaAluno.RemoveAt(indicealuno);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Índice inválido. O professor não foi encontrado na lista.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Índice inválido. Certifique-se de inserir um número válido.");
+                }
+                Console.WriteLine();
+                Console.WriteLine($"Aluno excluído com sucesso!");
+                Console.WriteLine();
+                Console.WriteLine("Pressione qualquer tecla para continuar...");
+                Console.ReadKey();
+                Console.Clear();
+                MenuAluno.ExibirMenuAluno();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Erro ao excluir aluno!");
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(ex.Message);
+                Console.ResetColor();
+                Console.WriteLine();
+                Console.WriteLine("Pressione qualquer tecla para voltar ao menu anterior...");
+                Console.ReadKey();
+                MenuAluno.ExibirMenuAluno();
+            }
         }
+
     }
 }

@@ -1,9 +1,5 @@
 ﻿using CadastroAluno.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CadastroAluno
 {
@@ -17,7 +13,7 @@ namespace CadastroAluno
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("--- Bem vindo ao Sistema Escolar ---");
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.ResetColor();
                 Console.WriteLine("Digite a opção desejada: ");
                 Console.WriteLine("1 - Aluno");
                 Console.WriteLine("2 - Professor");

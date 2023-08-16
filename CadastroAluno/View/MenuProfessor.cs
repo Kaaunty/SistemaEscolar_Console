@@ -13,7 +13,7 @@ namespace CadastroAluno.View
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("--- Bem vindo ao Cadastro de Professor ---");
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.ResetColor();
                 Console.WriteLine("Digite a opção desejada: ");
                 Console.WriteLine("1 - Cadastrar");
                 Console.WriteLine("2 - Visualizar");
@@ -37,17 +37,15 @@ namespace CadastroAluno.View
                 {
                     if (opcao == 1)
                     {
-                        AdicionarProfessor.Adicionar();
+                        ProfessorController.Adicionar();
                     }
                     else if (opcao == 2)
                     {
-                        Visualizadores.VisualizarProfessores();
+                        ExibirProfessor.VisualizarProfessores();
                     }
                     else if (opcao == 3)
                     {
-                        Console.WriteLine("Falta Implementar");
-                        Console.WriteLine();
-                        return;
+                        ProfessorController.Remover();
                     }
                     else if (opcao == 4)
                     {

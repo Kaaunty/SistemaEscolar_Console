@@ -1,13 +1,8 @@
-﻿using CadastroAluno.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CadastroAluno.Controller
 {
-    internal class CalcularMedia
+    internal class MediaController
     {
         public static double CalculaMedia(List<double> notas)
         {

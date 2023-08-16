@@ -1,14 +1,10 @@
 ﻿using CadastroAluno.Model;
 using CadastroAluno.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace CadastroAluno.Controller
 {
-
-    internal class AdicionarNotas
+    internal class NotaController
     {
         public static void AdicionarNotasAluno()
         {
@@ -21,7 +17,7 @@ namespace CadastroAluno.Controller
                     Console.WriteLine("Pressione qualquer tecla para voltar ao menu anterior...");
                     Console.ReadKey();
                     MenuAluno.ExibirMenuAluno();
-                }
+                } //ok
 
                 foreach (Aluno estudante in Aluno.ListaAluno)
                 {
@@ -30,10 +26,8 @@ namespace CadastroAluno.Controller
                     Console.WriteLine($"- Aluno: {estudante.Nome}");
                     Console.WriteLine("-----------------------------");
                 }
-
                 Console.WriteLine("Digite o RA do aluno que deseja adicionar notas: ");
                 string raEntrada = Console.ReadLine();
-
                 if (!int.TryParse(raEntrada, out int ra))
                 {
                     Console.WriteLine("RA inválido!");
@@ -54,12 +48,11 @@ namespace CadastroAluno.Controller
                     {
                         Console.WriteLine("Selecione o professor para adicionar a nota:");
                         string disciplinaSelecionada = SelecionarProfessor();
-
                         foreach (Aluno aluno in Aluno.ListaAluno)
                         {
                             if (aluno.RA == ra)
                             {
-                                if (aluno.Notas.Count >= 4)
+                                if (aluno.Notas.Count == 4)
                                 {
                                     Console.WriteLine("O aluno já possui notas cadastradas para todas as disciplinas!");
                                     Console.WriteLine();
@@ -70,36 +63,26 @@ namespace CadastroAluno.Controller
                                 else
                                 {
                                     int quantidadeNotas = 0;
-                                    Console.WriteLine("Digite a nota do aluno (0 a 10) :");
-                                    string NotaEntrada = Console.ReadLine();
-
                                     do
                                     {
-                                        if (double.TryParse(NotaEntrada, out double nota) && nota >= 0 && nota <= 10)
+                                        Console.WriteLine("Digite a nota do aluno (0 a 10) :");
+                                        double NotaEntrada = Double.Parse(Console.ReadLine());
+                                        if (double.TryParse(NotaEntrada.ToString(), out double nota) && nota >= 0 && nota <= 10)
                                         {
                                             aluno.Notas.Add(nota);
                                             quantidadeNotas++;
-                                            if (quantidadeNotas < 4)
-                                            {
-                                                Console.WriteLine("Digite a nota do aluno (0 a 10) :");
-                                                NotaEntrada = Console.ReadLine();
-                                            }
-
                                         }
                                         else
                                         {
                                             Console.WriteLine("Nota inválida!");
-                                            Console.WriteLine("Digite a nota do aluno (0 a 10) :");
-                                            NotaEntrada = Console.ReadLine();
                                         }
                                     }
-                                    while (aluno.Notas.Count < 4);
+                                    while (quantidadeNotas < 4);
                                 }
                                 Console.WriteLine("Notas adicionadas com sucesso!");
                                 Console.WriteLine("Pressione qualquer tecla para voltar ao menu anterior...");
                                 Console.ReadKey();
                                 MenuNotas.ExibirMenuNotas();
-
                             }
                         }
 
@@ -114,7 +97,7 @@ namespace CadastroAluno.Controller
                 Console.ReadKey();
                 MenuNotas.ExibirMenuNotas();
             }
-        }
+        } // OK
 
 
 
@@ -122,41 +105,37 @@ namespace CadastroAluno.Controller
         {
             try
             {
-                Console.WriteLine();
-                Console.WriteLine("Professores cadastrados: ");
-                int professorindex = 1;
+                Console.Clear();
+                Console.WriteLine("Lista de professores cadastrados:");
 
-                foreach (Professor professor in Professor.ListaProfessor)
+                for (int i = 0; i < Professor.ListaProfessor.Count; i++)
                 {
-                    Console.WriteLine("-----------------------------");
-                    Console.WriteLine($"- {professorindex} -");
-                    Console.WriteLine($"- Nome: {professor.Nome}");
-                    Console.WriteLine($"- Disciplina: {professor.Disciplinas}");
-                    Console.WriteLine("-----------------------------");
-                    professorindex++;
+                    int indicedisplay = i;
+                    Console.WriteLine($"{indicedisplay}. Nome: {Professor.ListaProfessor[i].Nome} Disciplina: {Professor.ListaProfessor[i].Disciplinas}");
+                    Console.WriteLine();
                 }
+                Console.WriteLine();
+
                 Console.WriteLine("Digite o número correspondente ao professor: ");
                 string professorEntrada = Console.ReadLine();
                 int professorSelecionado;
-                while (!int.TryParse(professorEntrada, out professorSelecionado))
+
+                if ((!int.TryParse(professorEntrada, out professorSelecionado)))
                 {
                     Console.WriteLine("Professor inválido!");
                     professorEntrada = Console.ReadLine();
                 }
-
-                if (professorSelecionado >= 1 && professorSelecionado <= Professor.ListaProfessor.Count)
-                {
-                    Professor professorEscolhido = Professor.ListaProfessor[professorSelecionado - 1];
-                    return professorEscolhido.Disciplinas;
-                }
                 else
                 {
-                    Console.WriteLine("Número de professor inválido!");
-                    Console.WriteLine("Pressione qualquer tecla para voltar ao menu anterior...");
-                    Console.ReadKey();
-                    MenuNotas.ExibirMenuNotas();
-                    return "";
+                    Professor professorEscolhido = Professor.ListaProfessor[professorSelecionado];
+                    return professorEscolhido.Disciplinas;
                 }
+                Console.WriteLine("Número de professor inválido!");
+                Console.WriteLine("Pressione qualquer tecla para voltar ao menu anterior...");
+                Console.ReadKey();
+                MenuNotas.ExibirMenuNotas();
+                return "";
+
             }
             catch (Exception ex)
             {

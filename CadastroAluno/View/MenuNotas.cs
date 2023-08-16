@@ -1,9 +1,5 @@
 ﻿using CadastroAluno.Controller;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CadastroAluno.View
 {
@@ -17,12 +13,11 @@ namespace CadastroAluno.View
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("--- Bem vindo ao Cadastro de Notas ---");
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ResetColor();
                 Console.WriteLine("Digite a opção desejada: ");
                 Console.WriteLine("1 - Adicionar");
                 Console.WriteLine("2 - Visualizar");
-                Console.WriteLine("3 - Remover");
-                Console.WriteLine("4 - Sair");
+                Console.WriteLine("3 - Sair");
                 Console.WriteLine();
 
                 Console.WriteLine();
@@ -44,22 +39,15 @@ namespace CadastroAluno.View
                     {
                         Console.Clear();
 
-                        AdicionarNotas.AdicionarNotasAluno();
+                        NotaController.AdicionarNotasAluno();
                     }
                     else if (opcao == 2)
                     {
                         Console.Clear();
-                        Visualizadores.VisualizarNotas();
+                        ExibirNotas.VisualizarNotas();
 
                     }
                     else if (opcao == 3)
-                    {
-                        Console.WriteLine("Falta Implementar");
-                        Console.Clear();
-                        Console.WriteLine();
-                        return;
-                    }
-                    else if (opcao == 4)
                     {
                         Console.WriteLine("Retornando ao menu principal");
                         Console.Clear();

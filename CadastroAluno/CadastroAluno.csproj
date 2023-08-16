@@ -43,20 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\AdicionarAluno.cs" />
-    <Compile Include="Controller\AdicionarNotas.cs" />
-    <Compile Include="Controller\AdicionarProfessor.cs" />
-    <Compile Include="Controller\CalcularMedia.cs" />
-    <Compile Include="Controller\Verificar.cs" />
-    <Compile Include="Model\Pessoa.cs" />
-    <Compile Include="Model\Professor.cs" />
-    <Compile Include="Model\Aluno.cs" />
+    <Compile Include="Controller\AlunoController.cs" />
+    <Compile Include="Controller\NotaController.cs" />
+    <Compile Include="Controller\ProfessorController.cs" />
+    <Compile Include="Controller\MediaController.cs" />
+    <Compile Include="Utils\Verificar.cs" />
+    <Compile Include="Entities\Pessoa.cs" />
+    <Compile Include="Entities\Professor.cs" />
+    <Compile Include="Entities\Aluno.cs" />
+    <Compile Include="View\ExibirAluno.cs" />
+    <Compile Include="View\ExibirNotas.cs" />
+    <Compile Include="View\ExibirProfessor.cs" />
     <Compile Include="View\MenuAluno.cs" />
     <Compile Include="View\MenuNotas.cs" />
     <Compile Include="View\MenuProfessor.cs" />
     <Compile Include="View\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Visualizadores.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

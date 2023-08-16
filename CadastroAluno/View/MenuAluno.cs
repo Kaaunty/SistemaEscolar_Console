@@ -1,9 +1,5 @@
 ﻿using CadastroAluno.Controller;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CadastroAluno.View
 {
@@ -17,7 +13,7 @@ namespace CadastroAluno.View
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("--- Bem vindo ao Cadastro de Alunos ---");
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.ResetColor();
                 Console.WriteLine("Digite a opção desejada: ");
                 Console.WriteLine("1 - Cadastrar");
                 Console.WriteLine("2 - Visualizar");
@@ -41,17 +37,15 @@ namespace CadastroAluno.View
                 {
                     if (opcao == 1)
                     {
-                        AdicionarAluno.Adicionar();
+                        AlunoController.Adicionar();
                     }
                     else if (opcao == 2)
                     {
-                        Visualizadores.VisualizarAlunos();
+                        ExibirAluno.VisualizarAlunos();
                     }
                     else if (opcao == 3)
                     {
-                        Console.WriteLine("Falta Implementar");
-                        Console.WriteLine();
-                        return;
+                        AlunoController.Remover();
                     }
                     else if (opcao == 4)
                     {
